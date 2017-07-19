@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://controller.kg.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="KgServiceControllerService" targetNamespace="http://controller.kg.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://192.168.55.205:9090/kgwebservice/service?xsd=1" namespace="http://controller.kg.com/" />
+    </xsd:schema>
+  </types>
+  <message name="getTunnelingId">
+    <part name="parameters" element="tns:getTunnelingId" />
+  </message>
+  <message name="getTunnelingIdResponse">
+    <part name="parameters" element="tns:getTunnelingIdResponse" />
+  </message>
+  <message name="isProjectExist">
+    <part name="parameters" element="tns:isProjectExist" />
+  </message>
+  <message name="isProjectExistResponse">
+    <part name="parameters" element="tns:isProjectExistResponse" />
+  </message>
+  <message name="insertAlarm">
+    <part name="parameters" element="tns:insertAlarm" />
+  </message>
+  <message name="insertAlarmResponse">
+    <part name="parameters" element="tns:insertAlarmResponse" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="initProject">
+    <part name="parameters" element="tns:initProject" />
+  </message>
+  <message name="initProjectResponse">
+    <part name="parameters" element="tns:initProjectResponse" />
+  </message>
+  <message name="getLastestTunnelingTimeStamp">
+    <part name="parameters" element="tns:getLastestTunnelingTimeStamp" />
+  </message>
+  <message name="getLastestTunnelingTimeStampResponse">
+    <part name="parameters" element="tns:getLastestTunnelingTimeStampResponse" />
+  </message>
+  <message name="SQLException">
+    <part name="fault" element="tns:SQLException" />
+  </message>
+  <message name="insertTunnelingRuntime">
+    <part name="parameters" element="tns:insertTunnelingRuntime" />
+  </message>
+  <message name="insertTunnelingRuntimeResponse">
+    <part name="parameters" element="tns:insertTunnelingRuntimeResponse" />
+  </message>
+  <message name="insertTunnelingHistory">
+    <part name="parameters" element="tns:insertTunnelingHistory" />
+  </message>
+  <message name="insertTunnelingHistoryResponse">
+    <part name="parameters" element="tns:insertTunnelingHistoryResponse" />
+  </message>
+  <portType name="KgServiceController">
+    <operation name="getTunnelingId">
+      <input wsam:Action="http://controller.kg.com/KgServiceController/getTunnelingIdRequest" message="tns:getTunnelingId" />
+      <output wsam:Action="http://controller.kg.com/KgServiceController/getTunnelingIdResponse" message="tns:getTunnelingIdResponse" />
+    </operation>
+    <operation name="isProjectExist">
+      <input wsam:Action="http://controller.kg.com/KgServiceController/isProjectExistRequest" message="tns:isProjectExist" />
+      <output wsam:Action="http://controller.kg.com/KgServiceController/isProjectExistResponse" message="tns:isProjectExistResponse" />
+    </operation>
+    <operation name="insertAlarm">
+      <input wsam:Action="http://controller.kg.com/KgServiceController/insertAlarmRequest" message="tns:insertAlarm" />
+      <output wsam:Action="http://controller.kg.com/KgServiceController/insertAlarmResponse" message="tns:insertAlarmResponse" />
+      <fault wsam:Action="http://controller.kg.com/KgServiceController/insertAlarm/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="initProject">
+      <input wsam:Action="http://controller.kg.com/KgServiceController/initProjectRequest" message="tns:initProject" />
+      <output wsam:Action="http://controller.kg.com/KgServiceController/initProjectResponse" message="tns:initProjectResponse" />
+      <fault wsam:Action="http://controller.kg.com/KgServiceController/initProject/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getLastestTunnelingTimeStamp">
+      <input wsam:Action="http://controller.kg.com/KgServiceController/getLastestTunnelingTimeStampRequest" message="tns:getLastestTunnelingTimeStamp" />
+      <output wsam:Action="http://controller.kg.com/KgServiceController/getLastestTunnelingTimeStampResponse" message="tns:getLastestTunnelingTimeStampResponse" />
+      <fault wsam:Action="http://controller.kg.com/KgServiceController/getLastestTunnelingTimeStamp/Fault/SQLException" name="SQLException" message="tns:SQLException" />
+    </operation>
+    <operation name="insertTunnelingRuntime">
+      <input wsam:Action="http://controller.kg.com/KgServiceController/insertTunnelingRuntimeRequest" message="tns:insertTunnelingRuntime" />
+      <output wsam:Action="http://controller.kg.com/KgServiceController/insertTunnelingRuntimeResponse" message="tns:insertTunnelingRuntimeResponse" />
+      <fault wsam:Action="http://controller.kg.com/KgServiceController/insertTunnelingRuntime/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="insertTunnelingHistory">
+      <input wsam:Action="http://controller.kg.com/KgServiceController/insertTunnelingHistoryRequest" message="tns:insertTunnelingHistory" />
+      <output wsam:Action="http://controller.kg.com/KgServiceController/insertTunnelingHistoryResponse" message="tns:insertTunnelingHistoryResponse" />
+      <fault wsam:Action="http://controller.kg.com/KgServiceController/insertTunnelingHistory/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+  </portType>
+  <binding name="KgServiceControllerPortBinding" type="tns:KgServiceController">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getTunnelingId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="isProjectExist">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertAlarm">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="initProject">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLastestTunnelingTimeStamp">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SQLException">
+        <soap:fault use="literal" name="SQLException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="insertTunnelingRuntime">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="insertTunnelingHistory">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="KgServiceControllerService">
+    <port name="KgServiceControllerPort" binding="tns:KgServiceControllerPortBinding">
+      <soap:address location="http://192.168.55.205:9090/kgwebservice/service" />
+    </port>
+  </service>
+</definitions>

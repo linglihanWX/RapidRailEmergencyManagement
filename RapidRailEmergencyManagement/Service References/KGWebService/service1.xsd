@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://controller.kg.com/" targetNamespace="http://controller.kg.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Exception" type="tns:Exception" />
+  <xs:element name="SQLException" type="tns:SQLException" />
+  <xs:element name="getLastestTunnelingTimeStamp" type="tns:getLastestTunnelingTimeStamp" />
+  <xs:element name="getLastestTunnelingTimeStampResponse" type="tns:getLastestTunnelingTimeStampResponse" />
+  <xs:element name="getTunnelingId" type="tns:getTunnelingId" />
+  <xs:element name="getTunnelingIdResponse" type="tns:getTunnelingIdResponse" />
+  <xs:element name="initProject" type="tns:initProject" />
+  <xs:element name="initProjectResponse" type="tns:initProjectResponse" />
+  <xs:element name="insertAlarm" type="tns:insertAlarm" />
+  <xs:element name="insertAlarmResponse" type="tns:insertAlarmResponse" />
+  <xs:element name="insertTunnelingHistory" type="tns:insertTunnelingHistory" />
+  <xs:element name="insertTunnelingHistoryResponse" type="tns:insertTunnelingHistoryResponse" />
+  <xs:element name="insertTunnelingRuntime" type="tns:insertTunnelingRuntime" />
+  <xs:element name="insertTunnelingRuntimeResponse" type="tns:insertTunnelingRuntimeResponse" />
+  <xs:element name="isProjectExist" type="tns:isProjectExist" />
+  <xs:element name="isProjectExistResponse" type="tns:isProjectExistResponse" />
+  <xs:complexType name="getTunnelingId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTunnelingIdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertTunnelingHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertTunnelingHistoryResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertAlarm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertAlarmResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="initProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="initProjectResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLastestTunnelingTimeStamp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:int" />
+      <xs:element minOccurs="0" name="arg1" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLastestTunnelingTimeStampResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SQLException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SQLState" type="xs:string" />
+      <xs:element name="errorCode" type="xs:int" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+      <xs:element minOccurs="0" name="nextException" type="tns:sqlException" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sqlException">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="nextException" type="tns:sqlException" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="exception">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:throwable">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="throwable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="stackTrace" nillable="true" type="tns:stackTraceElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stackTraceElement" final="extension restriction">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="isProjectExist">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="isProjectExistResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertTunnelingRuntime">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertTunnelingRuntimeResponse">
+    <xs:sequence />
+  </xs:complexType>
+</xs:schema>
